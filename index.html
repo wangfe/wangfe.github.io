@@ -682,6 +682,91 @@
       line-height: 1.6;
     }
 
+    /* ── PUBLICATIONS ─────────────────────── */
+    #publications { background: var(--white); }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .pub-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.6rem 1.75rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: all 0.25s;
+    }
+
+    .pub-card:hover {
+      border-color: rgba(59,130,246,0.28);
+      box-shadow: 0 6px 24px rgba(59,130,246,0.09);
+      transform: translateX(3px);
+    }
+
+    .pub-year-badge {
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      margin-top: 0.15rem;
+    }
+
+    .pub-body {}
+
+    .pub-title {
+      font-size: 0.975rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+
+    .pub-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .pub-title a:hover { color: var(--blue); }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+      margin-bottom: 0.35rem;
+    }
+
+    .pub-authors strong { color: var(--gray-700); font-weight: 600; }
+
+    .pub-venue {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      font-style: italic;
+    }
+
+    .pub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: #92400e;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 100px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      font-style: normal;
+    }
+
     /* ── FOOTER ───────────────────────────── */
     footer {
       background: var(--navy);
@@ -767,6 +852,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#awards">Awards</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="mailto:rodney.wang@gmail.com" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
@@ -1153,6 +1239,74 @@
           <div class="award-ico">📜</div>
           <div class="award-text">Best Paper Award, ACM RecSys 2022 — "Denoising Self-Attentive Sequential Recommendation" (with former Visa Research team)</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PUBLICATIONS ═══ -->
+  <section id="publications" class="section">
+    <div class="container">
+      <div class="section-eyebrow">Research</div>
+      <h2 class="section-heading">Selected Publications</h2>
+      <p class="section-lead">80+ publications · 5,000+ citations · 70+ patents. A selection of representative work spanning agentic AI, foundation models, recommender systems, and adversarial ML.</p>
+
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <div class="pub-year-badge">2026</div>
+          <div class="pub-body">
+            <div class="pub-title">
+              <a href="https://vixra.org/abs/2603.0138" target="_blank" rel="noopener">The Environment Layer: Building Infrastructure for Agentic AI Training</a>
+            </div>
+            <div class="pub-authors"><strong>Fei Wang</strong>, Eric Wang, Salon Ren</div>
+            <div class="pub-venue">viXra preprint, 2026</div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-year-badge">2024</div>
+          <div class="pub-body">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2307.02046" target="_blank" rel="noopener">Recommender Systems in the Era of Large Language Models (LLMs)</a>
+            </div>
+            <div class="pub-authors">Zihuai Zhao, Wenqi Fan, Jiatong Li, Yunqing Liu, Xiaowei Mei, Yiqi Wang, Zhen Wen, <strong>Fei Wang</strong>, Xiangyu Zhao, Jiliang Tang, Qing Li</div>
+            <div class="pub-venue">IEEE Transactions on Knowledge and Data Engineering, 2024</div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-year-badge">2024</div>
+          <div class="pub-body">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2402.09543" target="_blank" rel="noopener">Rethinking Large Language Model Architectures for Sequential Recommendations</a>
+            </div>
+            <div class="pub-authors">Hanbing Wang, Xiaorui Liu, Wenqi Fan, Xiangyu Zhao, Venkataramana Kini, Devendra Yadav, <strong>Fei Wang</strong>, Zhen Wen, Jiliang Tang, Hui Liu</div>
+            <div class="pub-venue">arXiv preprint, 2024</div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-year-badge">2022</div>
+          <div class="pub-body">
+            <div class="pub-title">
+              <a href="https://dl.acm.org/doi/10.1145/3523227.3546788" target="_blank" rel="noopener">Denoising Self-Attentive Sequential Recommendation</a>
+            </div>
+            <div class="pub-authors">Huiyuan Chen, Yusan Lin, Menghai Pan, Lan Wang, Chin-Chia Michael Yeh, Xiaoting Li, Yan Zheng, <strong>Fei Wang</strong>, Hao Yang</div>
+            <div class="pub-venue">ACM RecSys 2022 <span class="pub-badge">🏆 Best Paper</span></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-year-badge">2021</div>
+          <div class="pub-body">
+            <div class="pub-title">
+              <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Abusnaina_Adversarial_Example_Detection_Using_Latent_Neighborhood_Graph_ICCV_2021_paper.pdf" target="_blank" rel="noopener">Adversarial Example Detection Using Latent Neighborhood Graph</a>
+            </div>
+            <div class="pub-authors">Ahmed Abusnaina, Yuhang Wu, Sunpreet Arora, Yizhen Wang, <strong>Fei Wang</strong>, Hao Yang, David Mohaisen</div>
+            <div class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV), 2021</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
