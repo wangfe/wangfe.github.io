@@ -1,12 +1,1175 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fei Wang — AI/ML Leader & Researcher</title>
+  <meta name="description" content="Fei Wang — Executive-level AI/ML leader, Cofounder & CTO of Alchedata AI. 20+ years building foundation models, personalization systems, and production AI at scale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0b1221;
+      --navy-2:      #131f35;
+      --navy-3:      #1a2d4a;
+      --blue:        #3b82f6;
+      --blue-light:  #60a5fa;
+      --blue-glow:   rgba(59,130,246,0.18);
+      --teal:        #0ea5e9;
+      --white:       #ffffff;
+      --gray-50:     #f8fafc;
+      --gray-100:    #f1f5f9;
+      --gray-200:    #e2e8f0;
+      --gray-400:    #94a3b8;
+      --gray-500:    #64748b;
+      --gray-600:    #475569;
+      --gray-700:    #334155;
+      --gray-900:    #0f172a;
+      --amber:       #f59e0b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-700);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(11, 18, 33, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.3s;
+    }
+
+    .nav-brand {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand span { color: var(--blue-light); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gray-400);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+      padding: 0.4rem 1rem !important;
+      border-radius: 6px !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #2563eb !important; }
+
+    /* ── HERO ─────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: 7rem 2.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative blobs */
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 800px; height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+      right: -100px; top: -200px;
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+      left: -100px; bottom: -100px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.28);
+      color: var(--blue-light);
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-pill::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      box-shadow: 0 0 6px var(--blue-light);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-name {
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--gray-400);
+      font-weight: 400;
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+
+    .hero-title strong {
+      color: var(--blue-light);
+      font-weight: 600;
+    }
+
+    .hero-summary {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      max-width: 480px;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-lbl {
+      font-size: 0.68rem;
+      color: var(--gray-400);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.875rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(59,130,246,0.35);
+    }
+    .btn-primary:hover {
+      background: #2563eb;
+      box-shadow: 0 6px 20px rgba(59,130,246,0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    /* photo */
+    .hero-photo-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 340px;
+      height: 340px;
+    }
+
+    .photo-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--blue), var(--teal), transparent 60%, var(--blue));
+      animation: rotatering 6s linear infinite;
+      padding: 3px;
+    }
+
+    @keyframes rotatering {
+      to { transform: rotate(360deg); }
+    }
+
+    .photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--navy-2);
+      border: 5px solid var(--navy);
+    }
+
+    .photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* glow behind photo */
+    .photo-glow {
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    /* ── SECTIONS SHARED ──────────────────── */
+    .section {
+      padding: 5.5rem 2.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-lead {
+      font-size: 1rem;
+      color: var(--gray-500);
+      max-width: 580px;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ────────────────────────────── */
+    #about { background: var(--gray-50); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--gray-600);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+      font-size: 0.975rem;
+    }
+
+    .info-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06);
+      border: 1px solid var(--gray-200);
+    }
+
+    .info-card-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 1.25rem;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    }
+    .info-row:last-child { border-bottom: none; }
+
+    .info-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .info-row a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .info-row a:hover { text-decoration: underline; }
+
+    /* ── EXPERTISE ────────────────────────── */
+    #expertise { background: var(--white); }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.1rem;
+    }
+
+    .exp-tile {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.6rem 1.3rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-tile::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .exp-tile:hover {
+      border-color: rgba(59,130,246,0.25);
+      box-shadow: 0 8px 28px rgba(59,130,246,0.1);
+      transform: translateY(-4px);
+    }
+    .exp-tile:hover::before { opacity: 1; }
+
+    .tile-icon { font-size: 1.8rem; margin-bottom: 0.85rem; }
+
+    .tile-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .tile-body {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+
+    /* ── TIMELINE (experience) ────────────── */
+    #experience { background: var(--gray-50); }
+
+    .timeline {
+      position: relative;
+      padding-left: 2.25rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue) 0%, rgba(59,130,246,0.1) 100%);
+      border-radius: 2px;
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 1.75rem;
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -2.63rem;
+      top: 14px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 3px solid var(--gray-50);
+      box-shadow: 0 0 0 2px var(--blue);
+      transition: transform 0.2s;
+    }
+    .tl-item:hover::before { transform: scale(1.25); }
+
+    .job-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.05);
+      border: 1px solid var(--gray-200);
+      transition: all 0.25s;
+    }
+
+    .job-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+      transform: translateX(4px);
+      border-color: rgba(59,130,246,0.2);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .job-role {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .job-co {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.3rem;
+    }
+
+    .job-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.9rem;
+    }
+
+    .job-period {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      font-weight: 600;
+      background: var(--gray-100);
+      padding: 0.22rem 0.7rem;
+      border-radius: 100px;
+    }
+
+    .job-loc {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+    }
+
+    .job-desc {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .job-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .job-bullets li {
+      font-size: 0.845rem;
+      color: var(--gray-600);
+      padding-left: 1.3rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .job-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 0.75rem;
+      top: 0.05em;
+    }
+
+    .hl { color: var(--navy); font-weight: 600; }
+
+    /* ── EDUCATION ────────────────────────── */
+    #education { background: var(--white); }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .edu-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      gap: 1rem;
+      transition: all 0.25s;
+    }
+    .edu-card:hover {
+      border-color: rgba(59,130,246,0.3);
+      box-shadow: 0 6px 24px rgba(59,130,246,0.08);
+    }
+
+    .edu-emo { font-size: 2rem; flex-shrink: 0; }
+
+    .edu-school {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .edu-deg {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .edu-yr {
+      font-size: 0.8rem;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    /* ── AWARDS ───────────────────────────── */
+    #awards { background: var(--gray-50); }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .award-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      transition: all 0.2s;
+    }
+    .award-card:hover {
+      border-color: rgba(59,130,246,0.25);
+      box-shadow: 0 4px 16px rgba(59,130,246,0.08);
+    }
+
+    .award-ico { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.05rem; }
+
+    .award-text {
+      font-size: 0.845rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ───────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 2.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .footer-name span { color: var(--blue-light); }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+    }
+
+    /* ── RESPONSIVE ───────────────────────── */
+    @media (max-width: 1000px) {
+      .expertise-grid { grid-template-columns: repeat(3, 1fr); }
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-photo-col { order: -1; }
+      .photo-frame { width: 240px; height: 240px; }
+      .hero-stats { justify-content: center; max-width: none; }
+      .hero-actions { justify-content: center; }
+      .hero-summary { margin-left: auto; margin-right: auto; }
+      .about-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr 1fr; }
+      nav .nav-links { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 4rem 1.25rem; }
+      nav { padding: 0 1.25rem; }
+      #hero { padding: 6rem 1.25rem 4rem; }
+      .expertise-grid { grid-template-columns: 1fr 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hi, I’m Your Name</h1>
-  <p>This is my personal website.</p>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div class="nav-brand">Fei <span>Wang</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="mailto:rodney.wang@gmail.com" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-pill">AI / ML Executive &amp; Researcher</div>
+        <h1 class="hero-name">Fei Wang</h1>
+        <p class="hero-title">
+          Cofounder &amp; CTO, <strong>Alchedata AI</strong> &nbsp;·&nbsp; 20+ Years in AI/ML
+        </p>
+        <p class="hero-summary">
+          Executive-level AI/ML leader specializing in foundation model post-training, evaluation, and production-scale personalization — from Big Tech to startups, research labs to FDA-cleared medical devices.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">20+</span>
+            <span class="stat-lbl">Years</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">80+</span>
+            <span class="stat-lbl">Papers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">5K+</span>
+            <span class="stat-lbl">Citations</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">70+</span>
+            <span class="stat-lbl">Patents</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="https://linkedin.com/in/linfeeling" class="btn btn-primary" target="_blank" rel="noopener">
+            ↗ LinkedIn Profile
+          </a>
+          <a href="https://tinyurl.com/c7h3j94j" class="btn btn-ghost" target="_blank" rel="noopener">
+            Google Scholar
+          </a>
+          <a href="mailto:rodney.wang@gmail.com" class="btn btn-ghost">
+            Email Me
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo-col">
+        <div class="photo-frame">
+          <div class="photo-ring">
+            <div class="photo-inner">
+              <img src="Gemini_Generated_Image_pd3c3ipd3c3ipd3c.png" alt="Fei Wang">
+            </div>
+          </div>
+          <div class="photo-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-eyebrow">About Me</div>
+          <h2 class="section-heading">Building AI Systems<br>That Ship at Scale</h2>
+          <p>
+            I'm an executive-level AI/ML leader with a proven track record of leading teams of 40+ — including mentoring managers — building scalable ML infrastructure, and shipping high-impact AI systems in demanding production environments.
+          </p>
+          <p>
+            My hands-on expertise spans foundation model post-training (SFT, RLHF, RLSF), agentic RL environments, continuous evaluation and regression prevention, and cost/latency optimization for model serving.
+          </p>
+          <p>
+            I've built and led organizations at Amazon, IBM Research, Visa, Zepp Health, and AliveCor — and I'm now driving the future of agentic AI data pipelines as Cofounder and CTO of Alchedata AI.
+          </p>
+        </div>
+        <div>
+          <div class="info-card">
+            <div class="info-card-title">Contact &amp; Links</div>
+            <div class="info-row">
+              <div class="info-icon">✉️</div>
+              <a href="mailto:rodney.wang@gmail.com">rodney.wang@gmail.com</a>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">📍</div>
+              Fremont, CA 94555
+            </div>
+            <div class="info-row">
+              <div class="info-icon">📞</div>
+              408-881-4001
+            </div>
+            <div class="info-row">
+              <div class="info-icon">🔗</div>
+              <a href="https://linkedin.com/in/linfeeling" target="_blank" rel="noopener">linkedin.com/in/linfeeling</a>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">📚</div>
+              <a href="https://tinyurl.com/c7h3j94j" target="_blank" rel="noopener">Google Scholar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERTISE ═══ -->
+  <section id="expertise" class="section">
+    <div class="container">
+      <div class="section-eyebrow">Core Competencies</div>
+      <h2 class="section-heading">Areas of Expertise</h2>
+      <div class="expertise-grid">
+        <div class="exp-tile">
+          <div class="tile-icon">🧠</div>
+          <div class="tile-title">Foundation Model Systems</div>
+          <div class="tile-body">Post-training & evaluation frameworks, metrics design, inference footprint optimization, sampling strategies, distillation & student adaptation</div>
+        </div>
+        <div class="exp-tile">
+          <div class="tile-icon">⚙️</div>
+          <div class="tile-title">Post-Training</div>
+          <div class="tile-body">Reward modeling, evaluator stacks, dataset scoring & selection, RLHF / agentic RL loops, safety & quality gates</div>
+        </div>
+        <div class="exp-tile">
+          <div class="tile-icon">🎯</div>
+          <div class="tile-title">Personalization & Recommendations</div>
+          <div class="tile-body">Retrieval & ranking, recommender systems, embeddings, experimentation, user & item modeling at scale</div>
+        </div>
+        <div class="exp-tile">
+          <div class="tile-icon">🤖</div>
+          <div class="tile-title">Agentic AI</div>
+          <div class="tile-body">Multi-agent orchestration, tool use, evaluation-driven improvement loops, agentic RL, workflow automation</div>
+        </div>
+        <div class="exp-tile">
+          <div class="tile-icon">👥</div>
+          <div class="tile-title">Executive Leadership</div>
+          <div class="tile-body">Team-of-teams leadership, hiring & developing managers/scientists, 12-month roadmaps, cross-org execution, stakeholder communication</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-eyebrow">Career</div>
+      <h2 class="section-heading">Experience</h2>
+
+      <div class="timeline">
+
+        <!-- Alchedata -->
+        <div class="tl-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Cofounder &amp; CTO</div>
+                <div class="job-co">Alchedata AI</div>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Jun 2025 – Present</span>
+              <span class="job-loc">📍 Fremont, California</span>
+            </div>
+            <p class="job-desc">Own AI technical strategy; build and lead the engineering/ML organization; partner on fundraising. Built a Data Platform-as-a-Service and the MaidX multi-agent orchestration layer for end-to-end post-training data pipelines.</p>
+            <ul class="job-bullets">
+              <li>Built <span class="hl">model/data evaluation infrastructure</span>: reward-model training and evaluator stacks to continuously score, select, and improve datasets</li>
+              <li>Implemented <span class="hl">agentic RL training loops</span> with repeatable offline evaluation and quality gates for iterative improvement</li>
+              <li>Drove "Data 2.0" platform shift delivering <span class="hl">$5M profitable 2025 revenue</span> and 80%+ automation of enterprise data services</li>
+              <li>Achieved <span class="hl">5× faster pipeline execution</span> and 10–50% cost reduction through disciplined compute optimization</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Amazon -->
+        <div class="tl-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Head of Personalization Science</div>
+                <div class="job-co">Amazon Prime Video</div>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Apr 2022 – Jun 2025</span>
+              <span class="job-loc">📍 Sunnyvale, California</span>
+            </div>
+            <p class="job-desc">Spearheaded all facets of Prime Video's recommendation and search systems, leading integration of Generative AI with personalization frameworks. Grew team from 10 to 40 scientists and engineers.</p>
+            <ul class="job-bullets">
+              <li>Single-threaded science owner for <span class="hl">Prime Video's HomePage and Title Detail Page</span>, driving discovery and monetization</li>
+              <li>Led <span class="hl">StreamFM</span>, a transformer foundation model powering Prime Video ranking — drove <span class="hl">+5 min watch time per user per week</span></li>
+              <li>Launched <span class="hl">GenAI-powered "AI Topics"</span>: grouping, naming, and dynamic categorization across detail pages</li>
+              <li>Led <span class="hl">Search Decoupling</span> initiative achieving &gt;10% increase in Search Attributed Streaming Time</li>
+              <li>Modernized the ML platform, <span class="hl">accelerating algorithm development cycles by 2×</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Visa -->
+        <div class="tl-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Senior Director, AI Research</div>
+                <div class="job-co">Visa Research</div>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Nov 2019 – Mar 2022</span>
+              <span class="job-loc">📍 Palo Alto, California</span>
+            </div>
+            <p class="job-desc">Built and led a high-performing AI research team from 0 to 15 researchers. Delivered strategic updates to C-suite including CEO and CTO.</p>
+            <ul class="job-bullets">
+              <li><span class="hl">Deep Authentication Project</span>: AI fraud detection boosting detection rates 20%, projected $20M new revenue</li>
+              <li><span class="hl">Cybersource Recommender System</span>: low-latency (&lt;10ms) system projecting $100M in revenue growth</li>
+              <li><span class="hl">Scalable Feature Aggregation</span>: 10× faster processing vs. native Spark/Redis, saving millions in hardware costs</li>
+              <li>Produced <span class="hl">20+ pending patents</span> and 15 papers in top-tier conferences</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- AIBEE -->
+        <div class="tl-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Lead Algorithm Scientist</div>
+                <div class="job-co">AIBEE Inc. (USA)</div>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Jul 2018 – Nov 2019</span>
+              <span class="job-loc">📍 Palo Alto, California</span>
+            </div>
+            <ul class="job-bullets">
+              <li>Led AI-powered smart parking deployments across multiple cities, optimizing urban mobility</li>
+              <li>Built end-to-end deep learning pipeline for vehicle/license plate detection, car model classification, and OCR — deployed on edge and cloud</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Zepp -->
+        <div class="tl-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Chief Scientist in Healthcare</div>
+                <div class="job-co">Zepp Health (USA)</div>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Feb 2015 – Jun 2018</span>
+              <span class="job-loc">📍 Mountain View, California</span>
+            </div>
+            <ul class="job-bullets">
+              <li>Launched <span class="hl">Amazfit Health Band</span>, the company's first medical-grade product (CFDA clearance)</li>
+              <li>Transformed all medical algorithms to deep learning (biometric ID, sleep staging, signal compression) with production performance above SOTA</li>
+              <li>Developed disease classification from biosignals (ECG/PPG/GSR) for AFib, PAC/PVC, sleep apnea; prepared CFDA/FDA filing documentation</li>
+              <li>Filed 10+ patents based on core assets</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- AliveCor -->
+        <div class="tl-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Lead Algorithm Scientist</div>
+                <div class="job-co">AliveCor Inc.</div>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Dec 2013 – Feb 2015</span>
+              <span class="job-loc">📍 San Francisco, California</span>
+            </div>
+            <ul class="job-bullets">
+              <li>Responsible for <span class="hl">first-ever FDA approval of an algorithm detecting Atrial Fibrillation</span>, plus two additional FDA-cleared algorithms</li>
+              <li>Established strategic research roadmap and big data strategy — hosting ECG algorithms as an API service</li>
+              <li>Filed 10+ patent applications based on core company assets</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IBM -->
+        <div class="tl-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Research Staff Member</div>
+                <div class="job-co">IBM Research – Almaden</div>
+              </div>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Aug 2006 – Dec 2013</span>
+              <span class="job-loc">📍 San Jose, California</span>
+            </div>
+            <ul class="job-bullets">
+              <li>Shipped social computing platforms to IBM Watson/BlueMix: PEARL (emotion analysis), Smart SocialQA, and REACH (relationship analytics)</li>
+              <li>Co-led <span class="hl">"Medical Sieve"</span> radiology anomaly detection — <span class="hl">winner of IBM Research Grand Challenge</span>; integrated into IBM Watson Health Imaging</li>
+              <li>Built "AALIM" multimodal healthcare analytics for Kaiser Permanente; deployed "Clinical Data Hub" at Cedars-Sinai (16,000+ patients)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-eyebrow">Academic Background</div>
+      <h2 class="section-heading">Education</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-emo">🎓</div>
+          <div>
+            <div class="edu-school">University of Florida</div>
+            <div class="edu-deg">PhD in Computer Science · GPA 4.0 / 4.0</div>
+            <div class="edu-yr">2006</div>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-emo">🎓</div>
+          <div>
+            <div class="edu-school">University of Florida</div>
+            <div class="edu-deg">MS in Computer Science · GPA 4.0 / 4.0</div>
+            <div class="edu-yr">2003</div>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-emo">🏛️</div>
+          <div>
+            <div class="edu-school">Univ. of Science &amp; Technology of China</div>
+            <div class="edu-deg">BS in Electrical Engineering · GPA 3.9 / 4.0</div>
+            <div class="edu-yr">2001</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AWARDS ═══ -->
+  <section id="awards" class="section">
+    <div class="container">
+      <div class="section-eyebrow">Recognition</div>
+      <h2 class="section-heading">Awards &amp; Honors</h2>
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="award-ico">🏆</div>
+          <div class="award-text">IBM Invention Plateau Award, IBM Almaden Research Center (2010, 2013)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">🏆</div>
+          <div class="award-text">IBM Invention Achievement Award, IBM Almaden Research Center (2008–2011)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">📜</div>
+          <div class="award-text">Best Paper Award, ACM International Conference on Multimedia Information Retrieval (2010)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">🔬</div>
+          <div class="award-text">IBM Technical Accomplishment in Multimodal Healthcare Analytics for Clinical Decision Support (2009)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">🏅</div>
+          <div class="award-text">Best Poster Award, Computers in Cardiology, Bologna, Italy (2008)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">✈️</div>
+          <div class="award-text">CVPR Travel Grant Award, IEEE Computer Society (2006)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">⭐</div>
+          <div class="award-text">Outstanding Academic Achievement, University of Florida (2002)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">🌟</div>
+          <div class="award-text">Outstanding Academic Scholarship, USTC — top 5% undergraduate (1996, 1997, 1999, 2000)</div>
+        </div>
+        <div class="award-card">
+          <div class="award-ico">🥇</div>
+          <div class="award-text">Chen Hsong Industrial Scholarship, USTC — awarded to top 1% (only 45 students in China, 1998)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">Fei <span>Wang</span></div>
+      <div class="footer-links">
+        <a href="mailto:rodney.wang@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/linfeeling" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://tinyurl.com/c7h3j94j" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+      <div class="footer-copy">© 2025 Fei Wang · Fremont, CA</div>
+    </div>
+  </footer>
+
 </body>
 </html>
